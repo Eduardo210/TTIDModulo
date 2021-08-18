@@ -1,10 +1,10 @@
 package org.example.ttidmodulo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.renderscript.Sampler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,9 +15,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+
 import com.ttid.VariablesGlobales;
 
-public class PotenciaActivity extends AppCompatActivity {
+public class PotenciaActivity extends Activity {
     private Spinner sp1,sp2;
     private Button bt1;
     private EditText et_pot6c, et_pot6b, et_tiem6c, et_tiem6b;

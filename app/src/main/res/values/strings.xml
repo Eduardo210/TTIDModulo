@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ModuloTelepeaje Demo</string>
+
+    <!--Titles-->
+    <string name="titleLogIn">TAGS Telepeaje</string>
+    <string name="titleConfiguration">Configuración</string>
 </resources>
