@@ -137,6 +137,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Peaj
         for (int i = 0; i < elementos.length; i++) {
             String elem = elementos[i];
             String[] partes;
+            String parte;
             partes = elem.split("\\|");
             if (partes[1].equals("01") || partes[1] == "01") {
 //                Toast.makeText(this, "Error en la lectura de algun TAG", Toast.LENGTH_SHORT).show();
@@ -147,7 +148,9 @@ public class MainActivity extends Activity implements View.OnClickListener, Peaj
                     TipoISO.add(partes[0]);
                     Errores.add(partes[1]);
                     CodeTAG.add(partes[2]);
-                    ExaCodeTag.add(partes[3]);
+                    parte = partes[3].substring(8,24);
+
+                    ExaCodeTag.add(parte);
                 }
             }
         }

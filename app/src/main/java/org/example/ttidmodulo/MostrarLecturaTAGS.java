@@ -37,7 +37,7 @@ public class MostrarLecturaTAGS extends Activity {
     ArrayList<String> ExaCodeTag = new ArrayList();
     ArrayList<String> saldo = new ArrayList();
     Button btnback;
-    SoapObject result;
+
     String tag;
 
     @Override
@@ -48,7 +48,7 @@ public class MostrarLecturaTAGS extends Activity {
         CodeTAG = (ArrayList<String>) getIntent().getStringArrayListExtra("codetag");
         TipoISO = (ArrayList<String>) getIntent().getStringArrayListExtra("tipoiso");
         ExaCodeTag = (ArrayList<String>) getIntent().getStringArrayListExtra("exacodetag");
-        ListAdapter adapterTAGS = new ListAdapter(MostrarLecturaTAGS.this, CodeTAG, TipoISO);
+        ListAdapter adapterTAGS = new ListAdapter(MostrarLecturaTAGS.this, ExaCodeTag, TipoISO);
         list = (ListView) findViewById(R.id.list);
         list.setAdapter(adapterTAGS);
 
@@ -77,6 +77,7 @@ public class MostrarLecturaTAGS extends Activity {
         String Id, Mensaje, Clase_Id, Estatus, Operador_Id,
                 Tag_Clase, TagFAlta, Tag_FID, Tag_FModificacion,
                 Tag_Id, Tag_Saldo, Tipo;
+        SoapObject result = null;
 
         @Override
         protected void onPreExecute() {
@@ -98,10 +99,10 @@ public class MostrarLecturaTAGS extends Activity {
                 //Parameters
                 request.addProperty("usuarioWCF", Global.usuarioWCF);
                 request.addProperty("passwordWCF", Global.passwordWCF + formattedDate);
-                request.addProperty("NumTag", tag);
+                request.addProperty("tag_id", tag);
 
                 //Version Soap
-                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER12);
 
                 envelope.setOutputSoapObject(request);
                 envelope.dotNet = true;
@@ -112,25 +113,8 @@ public class MostrarLecturaTAGS extends Activity {
 
                 // Get the result
                 result = (SoapObject) envelope.bodyIn;
-                SoapObject body = (SoapObject) result.getProperty(0);
-                Id = body.getProperty("Id").toString();
-                Mensaje = body.getProperty("Mensaje").toString();
-                SoapObject bodyTag = (SoapObject) body.getProperty("Tag");
-                Clase_Id = bodyTag.getProperty("Clase_Id").toString();
-                Estatus = bodyTag.getProperty("Estatus").toString();
-                Operador_Id = bodyTag.getProperty("Operador_Id").toString();
-                Tag_Clase = bodyTag.getProperty("Tag_Clase").toString();
-                TagFAlta = bodyTag.getProperty("Tag_FAlta").toString();
-                Tag_FID = bodyTag.getProperty("Tag_FID").toString();
-                Tag_FModificacion = bodyTag.getProperty("Tag_FModificacion").toString();
-                Tag_Id = bodyTag.getProperty("Tag_Id").toString();
-                Tag_Saldo = bodyTag.getProperty("Tag_Saldo").toString();
-                Tipo = bodyTag.getProperty("Tipo").toString();
-                if (Tag_Saldo.isEmpty() || Tag_Saldo == null) {
-                    saldo.add("0.00");
-                } else {
-                    saldo.add(Tag_Saldo);
-                }
+
+
 
             } catch (Exception e) {
                 e.printStackTrace();

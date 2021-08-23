@@ -17,11 +17,17 @@ public class Global {
 
 
 
-    public static String URL_DOMAIN = "http://www.mep.com.mx/WCFConsultaTag/ConsultaTagService.svc";
-    public static String NAMESPACE = "http://tempuri.org/";
-    public static String SOAP_ACTION = "http://tempuri.org/IConsultaTagService/";
+//    public static String URL_DOMAIN = "http://www.mep.com.mx/WCFConsultaTag/ConsultaTagService.svc";
+//    public static String NAMESPACE = "http://tempuri.org/";
+//    public static String SOAP_ACTION = "http://tempuri.org/IConsultaTagService/";
 
-    public static String METHOD_QUERY_TAG = "ConsultaTag";
+    public static String URL_DOMAIN = "http://18.217.131.67/WCFQRPLUS/Service1.svc";
+    public static String NAMESPACE = "http://tempuri.org/";
+    public static String SOAP_ACTION = "http://tempuri.org/IServicio/";
+
+//    public static String METHOD_QUERY_TAG = "ConsultaTag";
+
+    public static String METHOD_QUERY_TAG = "mAIDE_ConsultaTag";
 
 
 }
