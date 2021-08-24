@@ -128,7 +128,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Peaj
         String[] elementos;
         elementos = s.split("\r\n");
 //        txtTag.setText(elementos.toString());
-
+helpes h = new helpes();
         ArrayList<String> TipoISO = new ArrayList();
         ArrayList<String> Errores = new ArrayList();
         ArrayList<String> CodeTAG = new ArrayList();
@@ -147,7 +147,8 @@ public class MainActivity extends Activity implements View.OnClickListener, Peaj
                 } else {
                     TipoISO.add(partes[0]);
                     Errores.add(partes[1]);
-                    CodeTAG.add(partes[2]);
+                    CodeTAG.add(h.ConvierteTAGEPC(partes[2].substring(0,20)));
+                    Log.d("codetag", CodeTAG.toString());
                     parte = partes[3].substring(8,24);
 
                     ExaCodeTag.add(parte);
